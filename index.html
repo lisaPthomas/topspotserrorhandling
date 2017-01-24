@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SD Top Spots</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+</head>
+<!--Controller Name Goes in Body-->
+
+<body ng-controller="TopSpotsController as vm">
+    <!--Heading -->
+    <div class="container">
+        <div class="page-header">
+            <h1>San Diego Top Spots with Error Handling</h1>
+        </div>
+        <!--  put into a div -->
+        <div>
+            <h4>
+            <p>There are some great places to see in San Diego. Check them out here. Then add your own!</p>
+            </h4>
+        </div>
+        <!--table-->
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <!-- <tr=table rows ng-repeat="planet in planets">-->
+                    <tr>
+                        <th> Name </th>
+                        <th> Description </th>
+                        <th> Location </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="topspots in vm.topspots">
+                        <td>{{topspots.name}}</td>
+                        <td>{{topspots.description}}</td>
+                        <td><a class="btn btn-default btn-md btn-primary" target="_blank" href="https://www.google.com/maps?q={{topspots.location[0]}},{{topspots.location[1]}}">Map</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/topspots.controller.js"></script>
+    <script src="/app/topspots.factory.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
